@@ -1,0 +1,13 @@
+ /* colors */
+
+* {
+    bg0:    #7A232323;
+    bg1:    #7E7E7E80;
+    bg2:    #0860f2E8;
+    fg0:    #DEDEDE;
+    fg1:    #FFFFFF;
+    fg2:    #DEDEDE80;
+}
+
+
+

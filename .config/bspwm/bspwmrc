@@ -1,0 +1,52 @@
+#! /bin/sh
+wmname LG3D &
+vmware-user-suid-wrapper &
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+if xrandr -q | grep 'HDMI-1-1 connected'; then
+xrandr --output HDMI-1-1 --mode 1920x1080 --right-of eDP
+bspc monitor eDP -d I IV V VII
+bspc monitor HDMI-1-1 -d I II III VI VIII
+else
+bspc monitor eDP -d I II III IV V VI VII VIII
+fi
+xrandr --output eDP --mode 1920x1080
+
+xinput set-prop 10 'libinput Tapping Enabled' 1
+
+bspc config border_width         2
+bspc config window_gap          15
+bspc config bottom_padding      5
+bspc config left_padding        18
+bspc config right_padding       18
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+# WALLPAPER
+feh --bg-fill ~/wallpaper/forest.jpg
+
+# POLYBAR
+~/.config/polybar/launch.sh
+
+# CUSTOM
+bspc config focus_follows_pointer true
+
+# PICOM
+picom &
+bspc config border_width 0
+
+# ssh
+xinput set-prop 11 "libinput Tapping Enabled" 1
+
+export XDG_DESKTOP_MANAGER=nautilus
+
+xsetroot -cursor_name left_ptr &

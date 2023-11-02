@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+#  ╔═╗╔═╗╦═╗╔═╗╔═╗╔╗╔╔═╗╦ ╦╔═╗╔╦╗╔═╗╦═╗
+#  ╚═╗║  ╠╦╝║╣ ║╣ ║║║╚═╗╠═╣║ ║ ║ ║╣ ╠╦╝
+#  ╚═╝╚═╝╩╚═╚═╝╚═╝╝╚╝╚═╝╩ ╩╚═╝ ╩ ╚═╝╩╚═
+
+#	Author : z0mbi3
+#   Url    : https://github.com/gh0stzk/dotfiles
+#   Info   : Script to take screenshots using maim.
+
+timestamp=$(date +%d_%m_%Y-%I-%M-%S)
+dir="$(xdg-user-dir PICTURES)/ScreenShots"
+filename="$dir/Screenshot-${timestamp}.png"
+
+[ -d "$dir" ] || mkdir -p "$dir"
+
+# Función para mostrar una notificación con dunst
+show_notification() {
+    dunstify --replace=699 -i "$1" "Screenshot" "$2"
+}
+
+countdown() {
+	for sec in $(seq "$1" -1 1); do
+		dunstify -t 1000 --replace=699 -i  ~/.config/bspwm/assets/screenshot.svg "Taking shot in : $sec"
+		sleep 1
+	done
+}
+
+take_screenshot() {
+    maim -u "$filename"
+    xclip -selection clipboard -t image/png -i "$filename"
+    show_notification "$filename" "$1"
+}
+
+case $1 in
+	--now)
+		take_screenshot "Screensot saved and copied to clipboard";;
+	--in10)
+		countdown 10
+		take_screenshot "Scheduled capture taken after 10 seconds and copied to clipboard";;
+	--sel)
+		maim -u -s "$filename"
+		xclip -selection clipboard -t image/png -i "$filename"
+		show_notification "$filename" "Screenshot of selected area saved and copied to clipboard";;
+	--active)
+		maim -u -i "$(xdotool getactivewindow)" "$filename"
+		xclip -selection clipboard -t image/png -i "$filename"
+		show_notification "$filename" "Screenshot of active window saved and copied to clipboard";;
+	*)
+		take_screenshot "Screensot saved and copied to clipboard";;
+esac
