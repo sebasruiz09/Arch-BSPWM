@@ -49,7 +49,7 @@ mkdir ~/wallpaper
 cp -v $route/wallpaper/* ~/wallpaper
 
 #copy config files
-cp -rv $route/.config ~/.config/
+cp -rv $route/.config/* ~/.config/
 
 # copy xinitrc
 cp -v "$route/.xinitrc" ~/
