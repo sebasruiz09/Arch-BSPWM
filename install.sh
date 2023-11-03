@@ -54,9 +54,6 @@ cp -rv $route/.config ~/.config/
 # copy xinitrc
 cp -v "$route/.xinitrc" ~/
 
-# set default shell
-chsh -s $(which zsh)
-
 # execution permissions
 chmod +x ~/.config/bspwm/bspwmrc
 chmod +x ~/.config/bspwm/scripts/bspwm_resize

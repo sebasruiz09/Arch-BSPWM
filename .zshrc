@@ -2,13 +2,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
 # export preferred FILE_MANAGER 
 export FILE_MANAGER=nautilus
 
 export ZSH="$HOME/.oh-my-zsh"
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
 plugins=(git)
 
 # alias for faster common commands
