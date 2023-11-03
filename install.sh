@@ -22,7 +22,7 @@ sudo pacman -S polybar
 sudo pacman -S picom meson
 
 #install additional packages
-sudo pacman -S neovim zsh xclip bat lsd neofetch sxhkd bspwm kitty feh rofi flameshot networkmanager pavucontrol pulseaudio pulseaudio-alsa
+sudo pacman -S neovim zsh xclip bat lsd neofetch sxhkd bspwm kitty feh rofi flameshot networkmanager pavucontrol pulseaudio pulseaudio-alsa keychain
 
 #manual isntall for p10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
@@ -42,7 +42,7 @@ cp -v "$route/.p10k.zsh" ~/
 cp -v "$route/.zshrc" ~/
 
 # isntall fonts
-cp -v "$route/fonts/*" /usr/share/fonts
+sudo cp -v "$route/fonts/*" /usr/share/fonts
 
 # install wallpaper
 mkdir ~/wallpaper
