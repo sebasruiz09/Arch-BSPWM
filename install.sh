@@ -13,7 +13,7 @@ route=$(pwd)
 sudo pacman -Syu
 
 #install prerequisites
-sudo pacman -S git cmake clang xorg-xinit xorg-xinput xorg-xrandr xorg-server mesa mesa-demos
+sudo pacman -S git cmake clang xorg-xinit xorg-xinput xorg-xrandr xorg-server mesa mesa-demos xorg-fonts
 
 #install polybar
 sudo pacman -S polybar 
