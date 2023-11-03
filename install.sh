@@ -1,7 +1,5 @@
 #!/bin/bash
 #
-###### !!! do not execute, still under development
-
 # recognize the user
 if [ "$(whoami)" == "root" ]; then
     echo "do not execute this file as root"
@@ -50,7 +48,7 @@ cp -v $route/wallpaper/* ~/wallpaper
 cp -rv $route/.config ~/.config/
 
 # copy xinitrc
-cp -v $route/.xinitrc ~/
+cp -v "$route/.xinitrc" ~/
 
 # set default shell
 chsh -s $(which zsh)
@@ -58,6 +56,8 @@ chsh -s $(which zsh)
 # execution permissions
 chmod +x ~/.config/bspwm/bspwmrc
 chmod +x ~/.config/bspwm/scripts/bspwm_resize
+chmod +x ~/.config/rofi/scripts/launcher.sh
+chmod +x ~/.config/rofi/scripts/powermenu.sh
 
 # end 
 notify-send "desktop ready for use, please restart and use xinitrc or select bspwm session"
