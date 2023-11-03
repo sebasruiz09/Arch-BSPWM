@@ -5,13 +5,15 @@ vmware-user-suid-wrapper &
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 if xrandr -q | grep 'HDMI-1-1 connected'; then
-xrandr --output HDMI-1-1 --mode 1920x1080 --right-of eDP
-bspc monitor eDP -d I IV V VII
-bspc monitor HDMI-1-1 -d I II III VI VIII
+    xrandr --output HDMI-1-1 --mode 1920x1080 --right-of eDP
+    bspc monitor eDP -d I II III IV V
+    bspc monitor HDMI-1-1 -d VI VII VIII IX X
+elif xrandr -q | grep 'eDP connected'; then
+    xrandr --output eDP --mode 1920x1080
+    bspc monitor eDP -d I II III IV V VI VII VIII
 else
-bspc monitor eDP -d I II III IV V VI VII VIII
+    bspc monitor -d I II III IV V VI VII VIII
 fi
-xrandr --output eDP --mode 1920x1080
 
 xinput set-prop 10 'libinput Tapping Enabled' 1
 
@@ -43,10 +45,5 @@ bspc config focus_follows_pointer true
 # PICOM
 picom &
 bspc config border_width 0
-
-# ssh
-xinput set-prop 11 "libinput Tapping Enabled" 1
-
-export XDG_DESKTOP_MANAGER=nautilus
 
 xsetroot -cursor_name left_ptr &

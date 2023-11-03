@@ -22,7 +22,7 @@ sudo pacman -S polybar
 sudo pacman -S picom meson
 
 #install additional packages
-sudo pacman -S nvim zsh xclip bat lsd neofetch sxhkd bspwm kitty feh rofi flameshot networkmanager pavucontrol pulseaudio pulseaudio-alsa
+sudo pacman -S neovim zsh xclip bat lsd neofetch sxhkd bspwm kitty feh rofi flameshot networkmanager pavucontrol pulseaudio pulseaudio-alsa
 
 #install plugins for zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -30,6 +30,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 mkdir ~/utils
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/utils/zsh-syntax-highlighting
 git clone https://github.com/marlonrichert/zsh-autocomplete.git  ~/utils/zsh-autocomplete
+
+# create user default directory
+sudo pacman -S xdg-user-dirs
+xdg-user-dirs-update
 
 # copy zsh config files
 rm -rf ~/.zshrc
@@ -59,5 +63,4 @@ chmod +x ~/.config/bspwm/scripts/bspwm_resize
 chmod +x ~/.config/rofi/scripts/launcher.sh
 chmod +x ~/.config/rofi/scripts/powermenu.sh
 
-# end 
-notify-send "desktop ready for use, please restart and use xinitrc or select bspwm session"
+echo "bspwm ready, reboot and start xserver or select section in your display manager"
