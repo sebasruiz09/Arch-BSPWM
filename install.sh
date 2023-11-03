@@ -24,8 +24,8 @@ sudo pacman -S picom meson
 #install additional packages
 sudo pacman -S neovim zsh xclip bat lsd neofetch sxhkd bspwm kitty feh rofi flameshot networkmanager pavucontrol pulseaudio pulseaudio-alsa
 
-#install plugins for zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#manual isntall for p10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
 mkdir ~/utils
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/utils/zsh-syntax-highlighting
@@ -35,9 +35,9 @@ git clone https://github.com/marlonrichert/zsh-autocomplete.git  ~/utils/zsh-aut
 sudo pacman -S xdg-user-dirs
 xdg-user-dirs-update
 
-# copy zsh config files
 rm -rf ~/.zshrc
 
+# copy zsh config files
 cp -v "$route/.p10k.zsh" ~/
 cp -v "$route/.zshrc" ~/
 
