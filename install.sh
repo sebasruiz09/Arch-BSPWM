@@ -41,7 +41,7 @@ cp -v "$route/.p10k.zsh" ~/
 cp -v "$route/.zshrc" ~/
 
 # isntall fonts
-sudo cp -v "$route/fonts/*" /usr/share/fonts
+sudo cp -v $route/fonts/* /usr/share/fonts/
 
 # install wallpaper
 mkdir ~/wallpaper
