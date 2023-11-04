@@ -25,9 +25,11 @@ This shell script is designed to automate the initial setup of a working environ
 
 6. Select BSPWM as your window manager and enjoy your configured environment.
 
-## optional instructions
+## Optional Instructions
 
 7. if you want the neovim configuration ```git clone https://github.com/sebasruiz09/nvim.git``` in ```user/.config``` directory
+
+8. start ```nvim``` and wait for it to download its packages and plugins
 
 ## Warning
 
