@@ -22,7 +22,7 @@ sudo pacman -S polybar
 sudo pacman -S picom meson
 
 #install additional packages
-sudo pacman -S neovim zsh xclip bat lsd neofetch sxhkd bspwm kitty feh rofi flameshot networkmanager pavucontrol pulseaudio pulseaudio-alsa keychain brightnessctl
+sudo pacman -S neovim zsh xclip bat lsd neofetch sxhkd bspwm kitty feh rofi flameshot networkmanager pavucontrol pulseaudio pulseaudio-alsa keychain brightnessctl bluez bluez-utils pulseaudio-bluetooth blueberry
 #manual isntall for p10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
