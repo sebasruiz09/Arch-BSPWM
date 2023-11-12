@@ -2,7 +2,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.zshprofile
+
+export MONITOR=HDMI-1-1
+
+source ~/utils/powerlevel10k/powerlevel10k.zsh-theme
 
 # export preferred FILE_MANAGER 
 export FILE_MANAGER=nautilus

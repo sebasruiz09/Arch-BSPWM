@@ -5,7 +5,7 @@ vmware-user-suid-wrapper &
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 if xrandr -q | grep 'HDMI-1-1 connected'; then
-    xrandr --output HDMI-1-1 --mode 1920x1080 --right-of eDP
+    xrandr --output HDMI-1-1 --mode 1920x1080 --rate 144.00 --right-of eDP
     bspc monitor eDP -d I II III IV V
     bspc monitor HDMI-1-1 -d VI VII VIII IX X
 elif xrandr -q | grep 'eDP connected'; then
@@ -14,10 +14,6 @@ elif xrandr -q | grep 'eDP connected'; then
 else
     bspc monitor -d I II III IV V VI VII VIII
 fi
-
-
-
-xinput set-prop 10 'libinput Tapping Enabled' 1
 
 bspc config border_width         2
 bspc config window_gap          15
@@ -29,11 +25,13 @@ bspc config split_ratio          0.50
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Gimp desktop='^10' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+
+bspc rule -a ".*" manage=on
 
 # WALLPAPER
 feh --bg-fill ~/wallpaper/forest.jpg
@@ -43,6 +41,10 @@ feh --bg-fill ~/wallpaper/forest.jpg
 
 # CUSTOM
 bspc config focus_follows_pointer true
+
+# DUNST
+killall -q dunst
+dunst &
 
 # PICOM
 picom &
