@@ -34,7 +34,7 @@ bspc rule -a Screenkey manage=off
 bspc rule -a ".*" manage=on
 
 # WALLPAPER
-feh --bg-fill ~/Descargas/1338408.png
+feh --bg-fill ~/Wallpaper/firefox.png
 
 # POLYBAR
 ~/.config/polybar/launch.sh
