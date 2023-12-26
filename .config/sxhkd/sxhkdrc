@@ -4,12 +4,14 @@
 
 # terminal emulator
 super + Return
-	kitty
+	kitty ~/
 
 # program launcher
 super + d
 	rofi -show drun -show-icons -icon-theme "McMojave-circle-black"
 
+super + p
+  ~/.config/rofi/scripts/powermenu.sh
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd

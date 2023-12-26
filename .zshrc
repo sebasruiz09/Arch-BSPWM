@@ -2,6 +2,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+
 source ~/.zshprofile
 
 export MONITOR=HDMI-1-1
@@ -25,11 +28,13 @@ alias ls='lsd'
 alias cat='/usr/bin/bat --paging=never'
 alias catnl='bat'
 alias icat='kitty +kitten icat'
-alias vi='nvim .'
+alias img='wezterm imgcat'
+alias vi='~/scripts/navigator.sh'
 alias explorer='nautilus . &'
 alias clip='xclip -sel clipboard <'
 alias autoremove='sudo pacman -R $(pacman -Qdtq)'
 alias connect='nmcli device wifi connect'
+alias lg='lazygit'
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,3 +75,7 @@ zle -N sudo-command-line
 # to add sudo by hitting esc twice
 bindkey "\e\e" sudo-command-line
 
+
+if [ -z "$TMUX" ]; then
+    tmux
+fi

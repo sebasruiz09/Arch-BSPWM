@@ -1,11 +1,9 @@
-Skyblue
+Arch Linux BSPWM Installation Script
 ===
 
 Archlinux config with zsh, neovim, kitty, feh, bspwm, sxhkd, polybar, picom & rofi
 
 ![screenshot](screenshots/screenshot.png)
-
-# Arch Linux BSPWM Installation Script
 
 This shell script is designed to automate the initial setup of a working environment on Arch Linux with the BSPWM window manager. It installs necessary packages and performs configurations to get the environment ready for use.
 

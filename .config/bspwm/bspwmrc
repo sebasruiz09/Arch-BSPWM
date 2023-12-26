@@ -10,9 +10,9 @@ if xrandr -q | grep 'HDMI-1-1 connected'; then
     bspc monitor HDMI-1-1 -d VI VII VIII IX X
 elif xrandr -q | grep 'eDP connected'; then
     xrandr --output eDP --mode 1920x1080
-    bspc monitor eDP -d I II III IV V VI VII VIII
+    bspc monitor eDP -d I II III IV V VI VII VIII IX X
 else
-    bspc monitor -d I II III IV V VI VII VIII
+    bspc monitor -d I II III IV V VI VII VIII IX X
 fi
 
 bspc config border_width         2
@@ -34,7 +34,7 @@ bspc rule -a Screenkey manage=off
 bspc rule -a ".*" manage=on
 
 # WALLPAPER
-feh --bg-fill ~/wallpaper/forest.jpg
+feh --bg-fill ~/Descargas/1338408.png
 
 # POLYBAR
 ~/.config/polybar/launch.sh
