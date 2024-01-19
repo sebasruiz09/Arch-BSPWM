@@ -14,6 +14,7 @@ elif xrandr -q | grep 'eDP connected'; then
 else
     bspc monitor -d I II III IV V VI VII VIII IX X
 fi
+    bspc monitor HDMI-1-1 -d VI VII VIII IX X
 
 bspc config border_width         2
 bspc config window_gap          15
@@ -34,7 +35,7 @@ bspc rule -a Screenkey manage=off
 bspc rule -a ".*" manage=on
 
 # WALLPAPER
-feh --bg-fill ~/Wallpaper/firefox.png
+feh --bg-fill ~/wallpaper/arch.png
 
 # POLYBAR
 ~/.config/polybar/launch.sh

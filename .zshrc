@@ -7,8 +7,6 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 source ~/.zshprofile
 
-export MONITOR=HDMI-1-1
-
 source ~/utils/powerlevel10k/powerlevel10k.zsh-theme
 
 # export preferred FILE_MANAGER 
