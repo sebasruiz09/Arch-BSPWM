@@ -7,20 +7,20 @@ dir="~/.config/rofi/menus"
 uptime=$(uptime -p | sed -e 's/up //g')
 
 # call rofi menu
-rofi_command="rofi -no-config -theme $dir/powermenu.rasi"
+rofi_command="rofi -no-config -theme  $dir/powermenu.rasi"
 
 # Options
-shutdown="  Shutdown"
-reboot="  Restart"
-lock="  Lock"
-suspend="  Sleep"
-logout="  Logout"
+shutdown="⏻   Shutdown"
+reboot="   Restart"
+lock="   Lock"
+suspend="󰒲   Sleep"
+logout="󰿅   Logout"
 
 # Message
 options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
 
 # Case for select options
-chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 0)"
+chosen="$(echo -e "$options" | $rofi_command -p "󰣇  Uptime: $uptime" -dmenu -selected-row 0)"
 case $chosen in $shutdown)
 			systemctl poweroff
           ;;

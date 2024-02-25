@@ -15,7 +15,7 @@ configuration {
 	font:							                "JetBrainsMonoNerdFont 12";
   show-icons:                       true;
 	icon-theme: 					            "McMojave-circle-black";
-  display-drun: 					          "";
+  display-drun: 					          "";
   drun-display-format:              "{name}";
   disable-history:                  false;
   fullscreen:                       false;
@@ -50,7 +50,7 @@ textbox-prompt-colon {
 }
 
 inputbar {
-    children: 						[ textbox-prompt-colon, prompt ];
+    children: 						[ prompt ];
     background-color:               @bg0;
     text-color:                     @fg0;
     expand:                         false;

@@ -4,17 +4,18 @@ vmware-user-suid-wrapper &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-if xrandr -q | grep 'HDMI-1-1 connected'; then
-    xrandr --output HDMI-1-1 --mode 1920x1080 --rate 144.00 --right-of eDP
-    bspc monitor eDP -d I II III IV V
-    bspc monitor HDMI-1-1 -d VI VII VIII IX X
-elif xrandr -q | grep 'eDP connected'; then
-    xrandr --output eDP --mode 1920x1080
-    bspc monitor eDP -d I II III IV V VI VII VIII IX X
+
+if xrandr -q | grep 'HDMI-0 connected'; then
+    xrandr --output eDP-1-0 --mode 1920x1080 --rate 144 --primary 
+    xrandr --output HDMI-0 --mode 2560x1440 --rate 144 --right-of eDP-1-0
+    bspc monitor eDP-1-0 -d I II III IV V
+    bspc monitor HDMI-0 -d VI VII VIII IX X
+elif xrandr -q | grep 'eDP-1-0 connected'; then
+    xrandr --output eDP-1-0 --mode 1920x1080
+    bspc monitor eDP-1-0 -d I II III IV V VI VII VIII IX X
 else
     bspc monitor -d I II III IV V VI VII VIII IX X
 fi
-    bspc monitor HDMI-1-1 -d VI VII VIII IX X
 
 bspc config border_width         2
 bspc config window_gap          15
@@ -32,13 +33,8 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-bspc rule -a ".*" manage=on
+ rule -a ".*" manage=on
 
-# WALLPAPER
-feh --bg-fill ~/wallpaper/arch.png
-
-# POLYBAR
-~/.config/polybar/launch.sh
 
 # CUSTOM
 bspc config focus_follows_pointer true
@@ -47,8 +43,19 @@ bspc config focus_follows_pointer true
 killall -q dunst
 dunst &
 
+# POLYBAR
+killall -q polybar
+~/.config/polybar/launch.sh
+
+
+killall -q conky
+/home/sebas/.config/conky/Betelgeuse/start.sh &
+
+
+/home/sebas/scripts/background.sh
+
 # PICOM
-picom &
+picom --vsync &
 bspc config border_width 0
 
 xsetroot -cursor_name left_ptr &

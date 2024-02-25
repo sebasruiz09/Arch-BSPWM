@@ -1,0 +1,106 @@
+format = """
+$os\
+[](bg:#123A60 fg:#1793D1)\
+$directory\
+$lua\
+$nodejs\
+$dart\
+$php\
+$rust\
+$python\
+$git_branch\
+$git_status\
+$character\
+"""
+[os]
+style = "bg:#1793D1 fg:#111111"
+disabled = false
+
+[os.symbols]
+Arch = " 󰣇  "
+
+[username]
+style_user = 'white bold bg:#DA627D'
+style_root = 'black bold'
+format = '[[ ](bg:#DA627D fg:#123A60)$user ]($style)'
+disabled = true
+show_always = true
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Icons" = "󰣌 " 
+"Scripts" = " "
+"Projects" = " "
+"~" = " "
+
+[directory]
+style = "bg:#014DA3 bold fg:#FFFFFF "
+truncation_length = 1
+truncation_symbol = ""
+format = "[[](bg:#014DA3 fg:#123A60)   $path [](bg:#123A60 fg:#014DA3)]($style)"
+
+
+[git_branch]
+symbol = " "
+style = "bg:#334649  fg:#FFFFFF"
+truncation_length = 11
+truncation_symbol = ""
+format = "[[](bg:#334649 fg:#123A60)( $symbol$branch )[](bg:#123A60 fg:#334649)]($style)"
+
+
+[lua]
+symbol = " "
+style = "bg:#4D9906 bold fg:#FFFFFF"
+format = "[[](bg:#4D9906 fg:#123A60) $symbol$version [](bg:#123A60 fg:#4D9906)]($style)"
+
+
+[dart]
+symbol = " "
+style = "bg:#4D9906 bold fg:#FFFFFF"
+format = "[[](bg:#4D9906 fg:#123A60) $symbol$version [](bg:#123A60 fg:#4D9906)]($style)"
+
+[nodejs]
+symbol = "󰎙 "
+style = "bg:#4D9906 bold fg:#FFFFFF"
+format = "[[](bg:#4D9906 fg:#123A60) $symbol$version [](bg:#123A60 fg:#4D9906)]($style)"
+
+[python]
+symbol = " "
+pyenv_prefix = "pyenv "
+python_binary = "python3"
+style = "bg:#4D9906 bold fg:#FFFFFF"
+format = "[[](bg:#4D9906 fg:#123A60) $symbol$version [](bg:#123A60 fg:#4D9906)]($style)"
+
+[php]
+symbol = "󰌟 "
+style = "bg:#4D9906 bold fg:#FFFFFF"
+format = "[[](bg:#4D9906 fg:#123A60) $symbol$version [](bg:#123A60 fg:#4D9906)]($style)"
+
+[rust]
+symbol = " "
+style = "bg:#4D9906 bold fg:#FFFFFF"
+format = "[[](bg:#4D9906 fg:#123A60) $symbol$version [](bg:#123A60 fg:#4D9906)]($style)"
+
+[character]
+success_symbol = "[[](bg:#2ecc71  fg:#123A60)](fg:#2ecc71)"
+error_symbol = "[[](bg:#ff3322 fg:#123A60)](fg:#ff3322)"
+vicmd_symbol = "[[](bg:#6f6a70 fg:#123A60)[](bg:#464347 fg:#123A60)](bold bg:#6f6a70 fg:#ff3322)"
+format = "[[](bg:#464347)$symbol ]($style)"
+
+[git_status]
+style = "bg:#202124 bold fg:#dadd02"
+conflicted = "🏳 "
+ahead = " ${count} "
+behind = "😰 ${count} "
+diverged = "😵 ${count} "
+up_to_date = "✓ "
+untracked = " ${count} "
+stashed = "📦 ${count} "
+modified = " ${count} "
+staged = "++${count} "
+renamed = "󰑕 ${count} "
+deleted = "🗑${count} "
+format = "[[](bg:#202124 fg:#123A60)( $all_status$ahead_behind)[](bg:#123A60 fg:#202124)]($style)"
